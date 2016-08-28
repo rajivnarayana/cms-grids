@@ -4,7 +4,7 @@ import {join} from "path";
 
 export function render(req : Request, res : Response, next) {
     if(res.grid) {
-        res.html = {content : jade.renderFile(join(__dirname,'grid.jade'), {grid: res.grid})};
+        res.html = Object.assign({content : jade.renderFile(join(__dirname,'grid.jade'), {grid: res.grid})}, res.html);
     }
     return next();
 }
