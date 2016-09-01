@@ -16,7 +16,9 @@ table.table(class='table-hover')
                             else
                                 != column
                     td
-                        each action in row.actions
+                        each action, index in row.actions
+                            if (index > 0)
+                                |  | 
                             a(href='#{action.href}') #{action.title}
 .grid-footer
     != grid.footer
