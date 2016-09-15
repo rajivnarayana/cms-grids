@@ -12,13 +12,13 @@ table.table(class='table-hover')
                     each column in row.columns
                         td 
                             if (column.title)
-                                a(href='#{column.href || "#"}') #{column.title}
+                                a(href='#{column.href || "#"}')&attributes(column.attributes || {}) #{column.title}
                             else
                                 != column
                     td
                         each action, index in row.actions
                             if (index > 0)
                                 |  | 
-                            a(href='#{action.href}') #{action.title}
+                            a(href='#{action.href}')&attributes(action.attributes || {}) #{action.title}
 .grid-footer
     != grid.footer

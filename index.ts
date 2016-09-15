@@ -17,6 +17,7 @@ export class Row  {
 export type HyperLink = {
     title : String;
     href : String;
+    attributes : any;
 }
 
 export class Grid {
