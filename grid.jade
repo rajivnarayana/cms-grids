@@ -13,10 +13,12 @@ table.table(class='table-hover')
                         td 
                             if (column.title)
                                 a(href='#{column.href || "#"}')&attributes(column.attributes || {}) #{column.title}
+                            else if (column.tag)
+                                #{column.tag}()&attributes(column.attributes || {})
                             else
                                 != column
                     td
-                        each action, index in row.actions
+                        each action, index in (row.actions || [])
                             if (index > 0)
                                 |  | 
                             a(href='#{action.href}')&attributes(action.attributes || {}) #{action.title}
