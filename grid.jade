@@ -10,8 +10,10 @@ table.table(class='table-hover')
             each row in grid.rows
                 tr
                     each column in row.columns
-                        td 
-                            if (column.title)
+                        td
+                            if (!column)
+                                |  
+                            else if (column.title)
                                 a(href='#{column.href || "#"}')&attributes(column.attributes || {}) #{column.title}
                             else if (column.tag)
                                 #{column.tag}()&attributes(column.attributes || {})
